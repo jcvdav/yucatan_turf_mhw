@@ -45,6 +45,21 @@ Investigating the exposure of Territorial Use Rights in Fisheries (TURFs) to mar
 +     ) +
 +     theme_minimal()
 
+## ggplot showing top 5 TURFS by total catch
 
+> top5_turfs <- annual_catch_by_turf %>%
++     group_by(turf_name) %>%
++     summarise(total_catch = sum(catch_kg, na.rm = TRUE)) %>%
++     arrange(desc(total_catch)) %>%
++     slice_head(n = 5)
+> 
+> ggplot(top5_turfs, aes(x = reorder(turf_name, -total_catch), y = total_catch)) +
++     geom_col(fill = "lightblue") +
++     labs(
++         title = "Top 5 TURFs by Total Catch",
++         x = "TURF Name",
++         y = "Total Catch (kg)"
++     ) +
++     theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ---------
