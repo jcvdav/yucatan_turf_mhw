@@ -22,4 +22,15 @@ Investigating the exposure of Territorial Use Rights in Fisheries (TURFs) to mar
 -- yucatan_turf_mhw.Rproj
 ```
 
+## ggplot showing total catch over time July 15, 2025
+
+> ggplot(annual_catch_by_turf, aes(x = year, y = catch_kg)) +
++     stat_summary(fun = sum, geom = "line", color = "steelblue") +
++     scale_y_continuous(labels = comma) +
++     labs(
++         title = "Total Catch Over Time",
++         x = "Year",
++         y = "Catch (kg)"
++     )
+
 ---------
