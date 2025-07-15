@@ -33,4 +33,18 @@ Investigating the exposure of Territorial Use Rights in Fisheries (TURFs) to mar
 +         y = "Catch (kg)"
 +     )
 
+## ggplot showing total catch over time by TURF
+
+> ggplot(annual_catch_by_turf, aes(x = year, y = catch_kg)) +
++     geom_line(color = "blue") +
++     facet_wrap(~ turf_name, scales = "free_y") +
++     labs(
++         title = "Catch Over Time by TURF",
++         x = "Year",
++         y = "Catch (kg)"
++     ) +
++     theme_minimal()
+
+
+
 ---------
